@@ -1,9 +1,11 @@
-import LandingPage from "./Components/LandingPage/LandingPage"
+// import LandingPage from "./Components/LandingPage/LandingPage"
+import AboutPage from "./Components/AboutPage/AboutPage"
 
 function App() {
   return (
     <div className="App">
-      <LandingPage />
+      {/* <LandingPage /> */}
+      <AboutPage />
     </div>
   );
 }
