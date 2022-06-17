@@ -5,7 +5,7 @@ function Hero() {
     return (
         <div className={heroPageStyle} style={heroStyle}>
             {/* overlay start */}
-            <div className="absolute top-0 bg-zinc-900 h-full p-2 w-full opacity-50">
+            <div className="absolute top-0 bg-zinc-900 h-full p-2 w-full opacity-75">
             </div>
             {/* overlay ends */}
             <div className="absolute w-full h-full z-30">

@@ -1,10 +1,14 @@
-// import LpCardLeft from "./LpCardLeft";
-// import LpCardRight from "./LpCardRight";
+import LpCardLeft from "./LpCardLeft";
+import LpCardRight from "./LpCardRight";
+import LpImage1 from "../../Images/landingPageImg1.jpg";
+import LpImage2 from "../../Images/landingPageImg2.jpg";
+import LpImage3 from "../../Images/landingPageImg3.jpg";
+import LpImage4 from "../../Images/landingPageImg4.jpg";
 
 function Features() {
     return (
         <div className="">
-            {/* <LpCardLeft
+            <LpCardLeft
                 h1="Upload documents to Ipfs,Infura."
                 p="One upload, lifetime access to your document at your calling and choice."
                 imageSrc={LpImage1}
@@ -12,7 +16,7 @@ function Features() {
             />
             <LpCardRight
                 h1="Keep your personal documents private."
-                p="Safeguard your private items but retain unlimited access to your document."
+                p="Safeguard your private items and retain unlimited access to your document."
                 imageSrc={LpImage2}
                 imageAlt="Image 02-Landing Page"
             />
@@ -27,8 +31,7 @@ function Features() {
                 p="Customize your viewing to get the best recommendations and suggestions."
                 imageSrc={LpImage4}
                 imageAlt="Image 04-Landing Page"
-            /> */}
-            hello world
+            />
         </div>
     );
 }
