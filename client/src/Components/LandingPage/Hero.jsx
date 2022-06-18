@@ -1,5 +1,6 @@
-import NavBar from "../Utility/NavBar"
+import MobileNavBar from "../Utility/MobileNavBar"
 import Button from "../Utility/Button";
+import Logo from "../Utility/Logo";
 
 function Hero() {
     return (
@@ -9,7 +10,10 @@ function Hero() {
             </div>
             {/* overlay ends */}
             <div className="absolute w-full h-full z-30">
-                <NavBar />
+                <div className="sm:hidden md:flex lg:h-[10vh] md:h-[8vh] justify-center items-center">  
+                    <Logo />
+                </div>
+                <MobileNavBar />
                 <div className="lg:py-36 lg:flex lg:flex-col lg:items-center md:h-[90vh] md:flex md:flex-col md:items-center md:justify-center sm:flex sm:flex-col sm:justify-center sm:h-[90vh]">
                     <h2 className={h2herostyle}>Welcome Back!</h2>
                     <h1 className={h1herostyle}>Unlimited books, Articles, and more.</h1>
