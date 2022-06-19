@@ -1,16 +1,33 @@
-import { FaPlus } from "react-icons/fa";
+// import mobileBackground from "../../Images/PB_hd_mobile2.jpg"
+import mobileBackground1 from "../../Images/PB_hd_phone.jpg"
+// import mobileBackground2 from "../../Images/PB_hd_mobile2.jpg"
+import MobileUploadButton from "./MobileUploadButton";
+import MobileForm from "./MobileForm";
+import MobileNavBar from "../Utility/MobileNavBar"
 
-function MobileUpload(props){
-       
-    return(
-        <div className="md:hidden sm:flex flex-col items-center space-y-1 my-5">
-            <div className="bg-red-500 rounded-full aspect-square w-[4.5rem] flex justify-center items-center">
-                <FaPlus className="text-3xl text-white"/>
+function MobileUpload() {
+    return (
+        <div className={uploadMobilePageStyle} style={uploadMobileStyle}>
+            {/* overlay start */}
+            <div className="absolute top-0 bg-zinc-900 h-full p-2 w-full opacity-50 -z-10">
             </div>
-            <h1 className="text-2xl font-semibold">Upload Files</h1>
-            <p className="text-[0.5rm] font-normal">Add up to 2 GB</p>
+            {/* overlay ends */}
+            {/* imageCredit start */}
+            <div className="md:hidden sm:block absolute bottom-0 w-full h-[8vh] bg-none text-center text-white">
+                <div className="text-[0.75rem] font-light">Imagecredit</div>
+                <div className="text-[1rem] font-medium">Akinlolu Oluwatobi Isaac</div> 
+            </div>
+            {/* imageCredit ends */}
+            <MobileNavBar />
+            <MobileUploadButton />
+            <MobileForm />
         </div>
-    )
+    );
+}
+
+const uploadMobilePageStyle = `md:hidden sm:block relative min-h-screen max-h-fit w-full max-h-100 mix-blend-overlay h-full object-cover bg-no-repeat bg-cover bg-center`
+const uploadMobileStyle = {
+    backgroundImage: `url(${mobileBackground1})`,
 }
 
 export default MobileUpload;
