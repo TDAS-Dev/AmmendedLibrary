@@ -19,7 +19,6 @@ function DesktopUpload() {
             <div className="flex lg:h-[90vh] md:h-[92vh] w-full lg:justify-start md:justify-center md:items-center lg:p-16">
                 <DesktopForm />
             </div>
-            
         </div>
     );
 }
