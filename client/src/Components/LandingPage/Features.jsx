@@ -9,7 +9,7 @@ function Features() {
     return (
         <div className="">
             <LpCardLeft
-                h1="Upload documents to Ipfs,Infura."
+                h1="Upload documents to Ipfs, Infura."
                 p="One upload, lifetime access to your document at your calling and choice."
                 imageSrc={LpImage1}
                 imageAlt="Image 01-Landing Page"
@@ -27,7 +27,7 @@ function Features() {
                 imageAlt="Image 03-Landing Page"
             />
             <LpCardRight
-                h1="Organize and customize your experience."
+                h1="Organise, customise your experience."
                 p="Customize your viewing to get the best recommendations and suggestions."
                 imageSrc={LpImage4}
                 imageAlt="Image 04-Landing Page"

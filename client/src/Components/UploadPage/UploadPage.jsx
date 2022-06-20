@@ -1,12 +1,12 @@
 
-import MobileUpload from "./MobileUpload";
-// import DesktopUpload from "./DesktopUpload";
+import MobileUpload from "./MobileUpload/MobileUpload";
+import DesktopUpload from "./DesktopUpload/DesktopUpload";
 
 function UploadPage() {
     return (
         <div className="">
             <MobileUpload />
-            {/* <DesktopUpload /> */}
+            <DesktopUpload />
         </div>
     );
 }
