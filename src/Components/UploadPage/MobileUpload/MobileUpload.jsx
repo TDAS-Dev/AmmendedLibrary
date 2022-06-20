@@ -7,7 +7,7 @@ import MobileNavBar from "../../Utility/MobileNavBar"
 
 function MobileUpload() {
     return (
-        <div className={uploadMobilePageStyle} >
+        <div className={uploadMobilePageStyle} style={uploadMobileStyle}>
             {/* overlay start */}
             {/* <div className="absolute top-0 bg-zinc-900 h-full p-2 w-full opacity-20 -z-10">
             </div> */}

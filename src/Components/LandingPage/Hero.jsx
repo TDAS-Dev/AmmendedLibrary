@@ -6,11 +6,11 @@ function Hero() {
     return (
         <div className={heroPageStyle} style={heroStyle}>
             {/* overlay start */}
-            <div className="absolute top-0 bg-zinc-900 h-full p-2 w-full opacity-75">
+            <div className="absolute top-0 bg-zinc-900 h-full p-2 w-full opacity-50">
             </div>
             {/* overlay ends */}
             <div className="absolute w-full h-full z-30">
-                <div className="sm:hidden md:flex lg:h-[10vh] md:h-[8vh] justify-center items-center">  
+                <div className="sm:hidden md:flex lg:h-[10vh] md:h-[8vh] lg:justify-start md:justify-center items-center lg:mx-16">  
                     <Logo />
                 </div>
                 <MobileNavBar />
