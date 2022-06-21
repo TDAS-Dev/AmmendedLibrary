@@ -5,9 +5,12 @@ import DesktopUpload from "./DesktopUpload/DesktopUpload";
 function UploadPage() {
     return (
         <div className="">
-            <MobileUpload />
-            <DesktopUpload />
+            Hello World
+            {/* <MobileUpload />
+            <DesktopUpload /> */}
         </div>
     );
 }
 export default UploadPage;
+
+
