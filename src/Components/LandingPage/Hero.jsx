@@ -1,6 +1,7 @@
 import MobileNavBar from "../Utility/MobileNavBar"
 import Button from "../Utility/Button";
 import Logo from "../Utility/Logo";
+import { Link } from "react-router-dom";
 
 function Hero() {
     return (
@@ -19,7 +20,7 @@ function Hero() {
                     <h1 className={h1herostyle}>Unlimited books, Articles, and more.</h1>
                     <h2 className={h2herostyle}>Read anytime. Access anywhere.</h2>
                     <div className={buttonDivStyle}>
-                        <Button className="" name="Explore Library" />
+                        <Link to="/home"><Button className="" name="Explore Library" /></Link>
                         <Button className="" name="Connect Wallet" />
                     </div>
                 </div>

@@ -6,10 +6,10 @@ function NavBar() {
       <div className="sm:hidden lg:flex md:flex items-center lg:h-[10vh] md:h-[8vh] md:px-14 lg:px-16 space-x-16">
         <Link to="/"><Logo className=""/></Link>
         <div className="flex lg:space-x-12 md:space-x-10" >
-            <Link href="/home" className={linkStyle}>Home</Link>
-            <Link href="/upload" className={linkStyle}>Upload</Link>
-            <Link href="/private" className={linkStyle}>Private</Link>
-            <Link href="/project-team" className={linkStyle}>Project Team</Link>
+            <Link to="/home" className={linkStyle}>Home</Link>
+            <Link to="/upload" className={linkStyle}>Upload</Link>
+            <Link to="/private" className={linkStyle}>Private</Link>
+            <Link to="/project-team" className={linkStyle}>Project Team</Link>
         </div>
       </div>
     );
