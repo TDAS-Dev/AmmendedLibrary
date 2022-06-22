@@ -39,6 +39,6 @@ function NavBar() {
 const loneLinkStyle = `flex flex-col items-center justify-center cursor-pointer`
 const linkStyle = `font-lato font-semibold text-center lg:text-[1.1rem] md:text-[0.9rem]`
 const activeCircleLink = `lg:w-[0.7rem] md:w-2 aspect-square bg-red-600 rounded-full`
-const inactiveCircleLink = `lg:w-[0.7rem] md:w-2 aspect-square bg-white rounded-full`
+const inactiveCircleLink = `lg:w-[0.7rem] md:w-2 aspect-square rounded-full`
 
 export default NavBar;

@@ -1,17 +1,14 @@
 
-// import MobileUpload from "./MobileUpload/MobileUpload";
-// import DesktopUpload from "./DesktopUpload/DesktopUpload";
-import NavBar from "../Utility/NavBar"
+import MobileUpload from "./MobileUpload/MobileUpload";
+import DesktopUpload from "./DesktopUpload/DesktopUpload";
 // import FileUploadTest from "./FileUploadTest";
 
 function UploadPage() {
     return (
         <div className="">
-            {/* <MobileUpload />
+            <MobileUpload />
             <DesktopUpload />
-            <FileUploadTest /> */}
-            <NavBar />
-            Upload Page Coming soon
+            {/* <FileUploadTest /> */}
         </div>
     );
 }
