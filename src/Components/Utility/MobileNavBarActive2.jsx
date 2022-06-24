@@ -1,7 +1,8 @@
-import { MdOutlineClose } from "react-icons/md";
+// import { MdOutlineClose } from "react-icons/md";
 import {Link} from "react-router-dom"
+import Logo from "./Logo";
 
-function MobileNavBarActive({setMenuActive}) {
+function MobileNavBarActive2({setMenuActive}) {
   const menuActiveHandler = () => {
     setMenuActive(false)
   }
@@ -9,7 +10,7 @@ function MobileNavBarActive({setMenuActive}) {
   return (
     <div className="lg:hidden md:hidden absolute flex flex-col h-[100vh] top-0 left-0 w-[60%] bg-gray-400 backdrop-opacity-10 z-50">
       <div className="h-[8vh] flex items-center mx-4 cursor-pointer">
-        <MdOutlineClose className="text-[2.2rem] text-white" onClick={menuActiveHandler}/>
+        <Logo onClick={menuActiveHandler}/>
       </div>
       <div className="flex flex-col justify-around items-center h-[92vh]">
         <Link to="/home" className={aStyle}>Home</Link>
@@ -24,4 +25,4 @@ function MobileNavBarActive({setMenuActive}) {
 
 const aStyle = `font-lato font-semibold text-center text-[1.2rem] text-white`
 
-export default MobileNavBarActive;
+export default MobileNavBarActive2;

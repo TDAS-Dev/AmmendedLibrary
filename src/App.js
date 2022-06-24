@@ -4,6 +4,7 @@ import AboutPage from "./Components/AboutPage/AboutPage"
 import UploadPage from "./Components/UploadPage/UploadPage"
 import PrivatePage from "./Components/PrivatePage/PrivatePage"
 // import MobileNavBarActive from "./Components/Utility/MobileNavBarActive"
+// import MobileNavBar from "./Components/Utility/MobileNavBar";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 

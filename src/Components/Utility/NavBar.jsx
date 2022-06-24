@@ -1,5 +1,5 @@
-import Logo from "./Logo"
-import {Link, useLocation } from "react-router-dom"
+import Logo from "./Logo";
+import {Link, useLocation } from "react-router-dom";
 
 function NavBar() {
   //retrieve the useLocation object
