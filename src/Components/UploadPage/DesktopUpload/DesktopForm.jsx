@@ -3,12 +3,15 @@ import Button from "../../Utility/Button"
 import { useState } from "react";
 import { Buffer } from "buffer";
 import { create } from "ipfs-http-client";
+
+//create the ipfs infura link client for uploads
 const client = create('https://ipfs.infura.io:5001/api/v0')
 
 function DesktopForm() {
     const [file, setFile] = useState(null);
     const [urlArr, setUrlArr] = useState([]);
 
+    //Function to get the file loaded into the system. It is done using the buffer package.
     const retrieveFile = (e) => {
         const data = e.target.files[0];
         const reader = new window.FileReader();
@@ -20,6 +23,8 @@ function DesktopForm() {
         e.preventDefault();
     }
 
+    //Function to handle uploading a file to ipfs.
+    //function returns the ipfs link (hash) to the file and saves it in the urlArr state.
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

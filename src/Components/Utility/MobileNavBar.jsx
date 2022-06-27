@@ -1,6 +1,6 @@
 import MobileNavBarInactive from "./MobileNavBarInactive";
-import MobileNavBarActive from "./MobileNavBarActive";
-// import MobileNavBarActive2 from "./MobileNavBarActive2";
+// import MobileNavBarActive from "./MobileNavBarActive";
+import MobileNavBarActive2 from "./MobileNavBarActive2";
 import {useState} from "react"
 
 function MobileNavBar(props){
@@ -12,8 +12,8 @@ function MobileNavBar(props){
                 <MobileNavBarInactive setMenuActive={setMenuActive}/>
             </div>
             <div className={menuActive ? barActive : barInactive}>
-                <MobileNavBarActive setMenuActive={setMenuActive}/>
-                {/* <MobileNavBarActive2 setMenuActive={setMenuActive}/> */}
+                {/* <MobileNavBarActive setMenuActive={setMenuActive}/> */}
+                <MobileNavBarActive2 setMenuActive={setMenuActive}/>
             </div>
         </div>
     )

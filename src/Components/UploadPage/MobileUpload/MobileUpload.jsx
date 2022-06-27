@@ -1,7 +1,7 @@
 // import mobileBackground from "../../Images/PB_hd_mobile2.jpg"
 import mobileBackground1 from "../../../Images/PB_hd_phone.jpg"
 // import mobileBackground2 from "../../Images/PB_hd_mobile2.jpg"
-import MobileUploadButton from "./MobileUploadButton";
+// import MobileUploadButton from "./MobileUploadButton";
 import MobileForm from "./MobileForm";
 import MobileNavBar from "../../Utility/MobileNavBar"
 
@@ -19,7 +19,7 @@ function MobileUpload() {
             </div>
             {/* imageCredit ends */}
             <MobileNavBar />
-            <MobileUploadButton />
+            {/* <MobileUploadButton /> */}
             <MobileForm />
         </div>
     );
