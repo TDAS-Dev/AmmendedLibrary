@@ -3,13 +3,18 @@ import Button from "../../Utility/Button"
 import { useState } from "react";
 import { Buffer } from "buffer";
 import { create } from "ipfs-http-client";
+import { ethers } from "ethers";
+import contractABI from "../../Utility/contractABI.json"
 
 //create the ipfs infura link client for uploads
 const client = create('https://ipfs.infura.io:5001/api/v0')
+const contractAddress = ""
+
 
 function DesktopForm() {
     const [file, setFile] = useState(null);
     const [urlArr, setUrlArr] = useState([]);
+    const [isUploader, setIsUploader] = useState(false);
 
     //Function to get the file loaded into the system. It is done using the buffer package.
     const retrieveFile = (e) => {
@@ -36,7 +41,46 @@ function DesktopForm() {
             console.log(error.message);
         }
         console.log(urlArr)
-    }    
+    }
+    
+    //Ethers.js Write function to add json object url to smart contract
+    //function takes one parameter (an array of strings to upload)
+    const upload = async(val)=> {
+        //create a provider that injects the wallet in the current window
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        //request for your request
+        await provider.send("eth_requestAccounts", [])
+        //signer account to face this place
+        const signer = await provider.getSigner()
+        const decentralizedLibrary = new ethers.Contract(contractAddress, contractABI, signer)
+
+        await decentralizedLibrary._upload(val)
+    }
+
+    //..Ethers.js write function for subsequent uploads
+    //function takes one parameter (an array of strings to upload)
+    const subsequentUpload = async(val)=> {
+        //create a provider that injects the wallet in the current window
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        //request for your request
+        await provider.send("eth_requestAccounts", [])
+        //signer account to face this place
+        const signer = await provider.getSigner()
+        const decentralizedLibrary = new ethers.Contract(contractAddress, contractABI, signer)
+
+        await decentralizedLibrary._subsequentUpload(val)
+    }
+
+    //..Ethers.js read function to check if address is an uploader
+    const isAnUploader = async () => {
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        await provider.send("eth_requestAccounts", [])
+        const decentralizedLibrary = new ethers.Contract(contractAddress, contractABI, provider)
+        const signer = await provider.getSigner()
+        const signerAddress = await signer.getAddress()
+        const uploaderStatus = await decentralizedLibrary._isAnUploader(signerAddress)
+        setIsUploader(uploaderStatus)
+    }
 
     return (
         <div className="bg-white rounded-xl w-72 drop-shadow">
