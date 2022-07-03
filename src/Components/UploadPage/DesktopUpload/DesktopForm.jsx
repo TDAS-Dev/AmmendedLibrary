@@ -1,46 +1,54 @@
 import { FaPlus } from "react-icons/fa";
 import Button from "../../Utility/Button"
 import { useState } from "react";
-import { Buffer } from "buffer";
-import { create } from "ipfs-http-client";
+// import { Buffer } from "buffer";
+import { create as ipfsHttpClient } from "ipfs-http-client";
 // import { ethers } from "ethers";
 // import contractABI from "../../Utility/contractABI.json"
 
 //create the ipfs infura link client for uploads
-const client = create('https://ipfs.infura.io:5001/api/v0')
-// const contractAddress = ""
+const ipfs = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
 
 function DesktopForm() {
-    const [file, setFile] = useState(null);
-    const [urlArr, setUrlArr] = useState([]);
+    const [file, setFile] = useState({});
     // const [isUploader, setIsUploader] = useState(false);
 
-    //Function to get the file loaded into the system. It is done using the buffer package.
-    const retrieveFile = (e) => {
-        const data = e.target.files[0];
-        const reader = new window.FileReader();
-        reader.readAsArrayBuffer(data);
-        reader.onloadend = () => {
-            console.log("Buffer data: ", Buffer(reader.result));
-            setFile(Buffer(reader.result));
+    const preUpload = (e) => {
+        if (e.target.value !== '') {
+            setFile(e.target.files[0])
+        } else {
+            setFile({})
         }
-        e.preventDefault();
+        console.log(file)
     }
+    //Function to get the file loaded into the system. It is done using the buffer package.
+    // const retrieveFile = (e) => {
+    //     const data = e.target.files[0];
+    //     const reader = new window.FileReader();
+    //     reader.readAsArrayBuffer(data);
+    //     reader.onloadend = () => {
+    //         console.log("Buffer data: ", Buffer(reader.result));
+    //         setFile(Buffer(reader.result));
+    //     }
+    //     e.preventDefault();
+    // }
 
     //Function to handle uploading a file to ipfs.
     //function returns the ipfs link (hash) to the file and saves it in the urlArr state.
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const created = await client.add(file);
-            const url = `https://ipfs.infura.io/ipfs/${created.path}`;
-            setUrlArr(prev => [...prev, url]);      
+            const added = await ipfs.add(file);
+            const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+            const hash = (added.path).toString()
+            const fileName= (file.name.substr(0, file.name.lastIndexOf("."))).toString()
+            const fileType= (file.name.split('.').pop()).toString()
+            console.log(url, hash, fileName, fileType)     
         }
         catch (error) {
             console.log(error.message);
         }
-        console.log(urlArr)
     }
     
     //Ethers.js Write function to add json object url to smart contract
@@ -90,7 +98,7 @@ function DesktopForm() {
                         <label htmlFor="file-upload" className="cursor-pointer">
                             <FaPlus className="text-1xl text-white"/>
                         </label>
-                        <input type="file" name="data" className="hidden" onChange={retrieveFile} id="file-upload"/>
+                        <input type="file" name="data" className="hidden" onChange={preUpload} id="file-upload"/>
                     </div>
                     <div className="mx-4">
                         <h1 className="text-[1.4rem] font-normal">Upload files</h1>
