@@ -13,9 +13,12 @@ contract AmmendedLibrary {
     /// @dev object is useful to display parameters of each file structure
     struct _File {
         string fileName;
+        string fileTitle;
         address uploader;
         string ipfsHash;
-        string status;
+        string ipfsURL;
+        string fileStatus;
+        string fileType;
     } //basic template of a library file
     /// @notice Public Variable to track the files(object) uploaded by an address
     /// @dev Variable is an array of files. Each upload generates a file and that file is stored in an array and passed into this variable
@@ -29,11 +32,14 @@ contract AmmendedLibrary {
     /// @dev Update the mapping based on the address calling the function with the array of uploaded hashes
     function _upload(
         string memory fileName,
+        string memory fileTitle,
         string memory ipfsHash,
-        string memory status
+        string memory ipfsURL,
+        string memory status,
+        string memory fileType
     ) public {
-        _userUploadedFiles[msg.sender].push(_File(fileName, msg.sender, ipfsHash, status));
-        _allUploadedFiles.push(_File(fileName, msg.sender, ipfsHash, status));
+        _userUploadedFiles[msg.sender].push(_File(fileName, fileTitle, msg.sender, ipfsHash, ipfsURL, status, fileType));
+        _allUploadedFiles.push(_File(fileName, fileTitle, msg.sender, ipfsHash, ipfsURL, status, fileType));
 
         bool isUploader = _isAnUploader(msg.sender);
         if (isUploader == false) {
