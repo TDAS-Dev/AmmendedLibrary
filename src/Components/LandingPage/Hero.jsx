@@ -2,8 +2,16 @@ import MobileNavBar from "../Utility/MobileNavBar"
 import Button from "../Utility/Button";
 import Logo from "../Utility/Logo";
 import { Link } from "react-router-dom";
+import { ethers } from "ethers";
 
 function Hero() {
+    const login = ()=> {
+        console.log("fired")
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        //request for your request
+        provider.send("eth_requestAccounts", [])
+    }
+
     return (
         <div className={heroPageStyle} style={heroStyle}>
             {/* overlay start */}
@@ -21,7 +29,7 @@ function Hero() {
                     <h2 className={h2herostyle}>Read anytime. Access anywhere.</h2>
                     <div className={buttonDivStyle}>
                         <Link to="/home"><Button className="" name="Explore Library" /></Link>
-                        <Button className="" name="Connect Wallet" />
+                        <Button className="" name="Connect Wallet" run={login}/>
                     </div>
                 </div>
             </div>

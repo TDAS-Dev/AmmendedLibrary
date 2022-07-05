@@ -1,7 +1,6 @@
 import { FaPlus } from "react-icons/fa";
 import Button from "../../Utility/Button"
 import { useState } from "react";
-// import { Buffer } from "buffer";
 import { create as ipfsHttpClient } from "ipfs-http-client";
 import { ethers } from "ethers";
 import contractABI from "../../../constants/contractABI.json"
@@ -16,6 +15,7 @@ function DesktopForm() {
     const [fileTitle, setFileTitle] = useState("");
     const [fileStatus, setFileStatus] = useState("");
     
+    // Function to get the file loaded into the system. It is done using the buffer package.
     const preUpload = (e) => {
         console.log("fired")
         if (e.target.value !== '') {
@@ -25,24 +25,10 @@ function DesktopForm() {
         }
     }
     
-    //Function to get the file loaded into the system. It is done using the buffer package.
-    // const retrieveFile = (e) => {
-    //     const data = e.target.files[0];
-    //     const reader = new window.FileReader();
-    //     reader.readAsArrayBuffer(data);
-    //     reader.onloadend = () => {
-    //         console.log("Buffer data: ", Buffer(reader.result));
-    //         setFile(Buffer(reader.result));
-    //     }
-    //     e.preventDefault();
-    // }
-
     //Function to handle uploading a file to ipfs.
-    //function returns the ipfs link (hash) to the file and saves it in the urlArr state.
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log(file)
             const added = await ipfs.add(file);
             const url = `https://ipfs.infura.io/ipfs/${added.path}`;
             const hash = (added.path).toString()
@@ -53,12 +39,9 @@ function DesktopForm() {
         catch (error) {
             console.log(error.message);
         }
-        setFileTitle("")
-        setFileStatus("")
     }
     
-    // Ethers.js Write function to add json object url to smart contract
-    // function takes one parameter (an array of strings to upload)
+    // Ethers.js Write function to add file to smart contract
     const upload = async(_fileName, _fileTitle, _hash, _url, _fileStatus, _fileType)=> {
         //create a provider that injects the wallet in the current window
         const provider = new ethers.providers.Web3Provider(window.ethereum)
