@@ -1,6 +1,5 @@
 
 import imageIcon from "../../Images/imageIcon.png"
-import {Link} from "react-router-dom"
 
 function HomeCard(props) {
     return (
@@ -10,7 +9,7 @@ function HomeCard(props) {
             className="aspect-auto lg:w-[50%] sm:w-[30%] text-center"/>
             <div className="flex flex-col lg:items-start sm:items-center">
                 <h1 className="text-[1.1rem] font-medium">{props.name}</h1>
-                <Link to={props.link} className="text-[0.85rem] underline text-red-300 hover:text-red-500 italic font-semibold">View File</Link>
+                <a href={props.link} target="_blank" rel="noopener noreferrer" className={`text-[0.85rem] underline text-red-300 hover:text-red-500 italic font-semibold ${(props.status === "Private") ? 'hidden' : 'block'}`}>View File</a>
                 <p className="text-[0.7rem] font-light">{props.uploader}</p>
                 <p className="text-[0.7rem] font-light">{props.status}</p>
             </div>
