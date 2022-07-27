@@ -11,7 +11,7 @@ function AboutPage(){
             <NavBar />
             <MobileNavBar />
             <About/>
-            <Footer className=""/>
+            <div><Footer className=""/></div>
         </div>
     )
 }
